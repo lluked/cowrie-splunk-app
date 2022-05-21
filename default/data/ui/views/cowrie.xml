@@ -14,7 +14,7 @@
       <chart>
         <title>Events Per Hour</title>
         <search>
-          <query>index=cowrie from | timechart span=1h count AS Events</query>
+          <query>index=cowrie eventid IN ("cowrie.login.success","cowrie.login.failed") | timechart span=1h count AS Events</query>
           <earliest>$Timepicker.earliest$</earliest>
           <latest>$Timepicker.latest$</latest>
           <sampleRatio>1</sampleRatio>
