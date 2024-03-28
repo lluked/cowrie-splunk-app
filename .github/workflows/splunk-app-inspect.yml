@@ -24,13 +24,14 @@ jobs:
         run: ls -laR splunk_app
 
       - name: Package app
-        run: tar --exclude='.appinspect.expect.yaml' --exclude='indexes.conf' --format ustar -cvzf splunk_app.tar.gz splunk_app
+        run: tar --exclude='.appinspect.*.yaml' --exclude='indexes.conf' --format ustar -cvzf splunk_app.tar.gz splunk_app
 
       - name: Inspect app
         uses: splunk/appinspect-cli-action@v2.5.0
         with:
           app_path: splunk_app.tar.gz
           appinspect_expected_failures: splunk_app/.appinspect.expect.yaml
+          appinspect_manual_checks: splunk_app/.appinspect.expect.yaml
 
       - name: Upload result
         uses: actions/upload-artifact@v4
