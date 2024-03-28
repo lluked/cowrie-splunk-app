@@ -1,26 +1,26 @@
   check_for_known_vulnerabilities_in_third_party_libraries:
-    comment: ''
+    comment: 'Checked'
   check_for_reverse_shells:
-    comment: ''
+    comment: 'Checked'
   check_authorization_credentials:
-    comment: ''
+    comment: 'Checked'
   check_embedded_links:
-    comment: ''
+    comment: 'Checked'
   check_fs_writes:
-    comment: ''
+    comment: 'Checked'
   check_search_acceleration:
-    comment: ''
+    comment: 'Checked'
   check_dependencies:
-    comment: ''
+    comment: 'Checked'
   check_documented_included_open_source:
-    comment: ''
+    comment: 'Checked'
   check_editing_and_proofreading:
-    comment: ''
+    comment: 'Checked'
   check_requires_access_to_files_outside_apps_dir:
-    comment: ''
+    comment: 'Checked'
   check_link_includes_contact_info:
-    comment: ''
+    comment: 'Checked'
   check_hard_coded_paths:
-    comment: ''
+    comment: 'Checked'
   check_for_shell:
-    comment: ''
+    comment: 'Checked'
