@@ -1,4 +1,4 @@
-name: splunk-app-inspect
+name: Call splunk-app-inspect
 
 on:
   push:
@@ -8,34 +8,5 @@ on:
   workflow_dispatch:
 
 jobs:
-  inspect:
-    runs-on: ubuntu-latest
-    steps:
-
-      - name: Checkout app
-        uses: actions/checkout@v4
-        with:
-          path: splunk_app
-
-      - name: Remove git directories
-        run: rm -R splunk_app/.git/ splunk_app/.github/
-
-      - name: List contents of app
-        run: ls -laR splunk_app
-
-      - name: Package app
-        run: tar --exclude='.appinspect.*.yaml' --exclude='indexes.conf' --format ustar -cvzf splunk_app.tar.gz splunk_app
-
-      - name: Inspect app
-        uses: splunk/appinspect-cli-action@v2.5.0
-        with:
-          app_path: splunk_app.tar.gz
-          appinspect_expected_failures: splunk_app/.appinspect.expect.yaml
-          appinspect_manual_checks: splunk_app/.appinspect.manualcheck.yaml
-
-      - name: Upload result
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: appinspect_result
-          path: appinspect_result.json
+  call-workflow:
+    uses: lluked/Splunk-App-Testing/.github/workflows/splunk-app-inspect.yml@main
