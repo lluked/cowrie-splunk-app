@@ -19,7 +19,7 @@ jobs:
         run: ls -la splunk_app
 
       - name: Package app folder
-        run: tar --format ustar -cvzf splunk_app.tar.gz splunk_app
+        run: tar --exclude='./.git' --format ustar -cvzf splunk_app.tar.gz splunk_app
 
       - name: Inspect app
         uses: splunk/appinspect-cli-action@v2.5.0
