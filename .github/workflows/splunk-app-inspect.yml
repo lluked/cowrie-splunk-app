@@ -31,7 +31,7 @@ jobs:
         with:
           app_path: splunk_app.tar.gz
           appinspect_expected_failures: splunk_app/.appinspect.expect.yaml
-          appinspect_manual_checks: splunk_app/.appinspect.expect.yaml
+          appinspect_manual_checks: splunk_app/.appinspect.manualcheck.yaml
 
       - name: Upload result
         uses: actions/upload-artifact@v4
