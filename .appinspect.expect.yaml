@@ -1,8 +1,8 @@
   check_app_icon_2x_dimensions:
-    comment: 'Expected Failure'
+    comment: 'ADDON-XXX: Expected Failure'
   check_app_icon_2x_is_png:
-    comment: 'Expected Failure'
+    comment: 'ADDON-XXX: Expected Failure'
   check_app_icon_dimensions:
-    comment: 'Expected Failure'
+    comment: 'ADDON-XXX: Expected Failure'
   check_app_icon_is_png:
-    comment: 'Expected Failure'
+    comment: 'ADDON-XXX: Expected Failure'
