@@ -17,11 +17,14 @@ jobs:
         with:
           path: splunk_app
 
+      - name: Remove git directories
+        run: rm -R splunk_app/.git/ splunk_app/.github/
+
       - name: List contents of app
         run: ls -laR splunk_app
 
       - name: Package app
-        run: tar --exclude='.git' --exclude='.github' --exclude='.appinspect.expect.yaml' --exclude='indexes.conf' --format ustar -cvzf splunk_app.tar.gz splunk_app
+        run: tar --exclude='.appinspect.expect.yaml' --exclude='indexes.conf' --format ustar -cvzf splunk_app.tar.gz splunk_app
 
       - name: Inspect app
         uses: splunk/appinspect-cli-action@v2.5.0
