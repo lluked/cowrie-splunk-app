@@ -11,15 +11,17 @@ jobs:
   inspect:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+
+      - name: Checkout app
+        uses: actions/checkout@v4
         with:
           path: splunk_app
 
-      - name: List contents of app folder
+      - name: List contents of app
         run: ls -la splunk_app
 
-      - name: Package app folder
-        run: tar --exclude='.git' --format ustar -cvzf splunk_app.tar.gz splunk_app
+      - name: Package app
+        run: tar --exclude='.git' --exclude='.github' --format ustar -cvzf splunk_app.tar.gz splunk_app
 
       - name: Inspect app
         uses: splunk/appinspect-cli-action@v2.5.0
