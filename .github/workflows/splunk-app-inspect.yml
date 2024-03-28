@@ -9,4 +9,4 @@ on:
 
 jobs:
   call-workflow:
-    uses: lluked/Splunk-App-Testing/.github/workflows/splunk-app-inspect.yml@v1
+    uses: lluked/Splunk-App-Testing/.github/workflows/splunk-app-inspect.yml@main
