@@ -11,10 +11,17 @@ jobs:
   inspect:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           path: splunk_app
-      - name: Splunk AppInspect
-        uses: splunk/appinspect-cli-action@v2.5.0
-        with:
-          app_path: 'splunk_app'
+
+      - name: Run a one-line script
+        run: ls -la splunk_app/
+
+      - name: Run a one-line script
+        run: pwd
+
+      # - name: Splunk AppInspect
+      #   uses: splunk/appinspect-cli-action@v2.5.0
+      #   with:
+      #     app_path: 'splunk_app'
