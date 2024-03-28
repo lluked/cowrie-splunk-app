@@ -1,0 +1,20 @@
+name: splunk-app-inspect
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          path: splunk_app
+      - name: Splunk AppInspect
+        uses: splunk/appinspect-cli-action@v2.5.0
+        with:
+          app_path: 'splunk_app'
