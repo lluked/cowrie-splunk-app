@@ -1,1 +1,0 @@
-splunk-appinspect list tags
