@@ -1,0 +1,12 @@
+name: Call splunk-configparser-tests
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  call-workflow:
+    uses: lluked/Splunk-App-Testing/.github/workflows/splunk-configparser-tests.yml@development
