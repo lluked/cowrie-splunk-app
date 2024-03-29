@@ -9,4 +9,4 @@ on:
 
 jobs:
   call-workflow:
-    uses: lluked/Splunk-App-Testing/.github/workflows/splunk-configparser-tests.yml@development
+    uses: lluked/Splunk-App-Testing/.github/workflows/splunk-configparser-tests.yml@main
