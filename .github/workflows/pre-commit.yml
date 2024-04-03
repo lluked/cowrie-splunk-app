@@ -37,12 +37,15 @@ jobs:
       run: git status
       working-directory: repo
     - name: Run pre-commit
+      id: pre-commit
       run: pre-commit run --show-diff-on-failure --color=always --all-files
       working-directory: repo
-    - run: |
+    - name: Upload changes
+      working-directory: repo
+      if: failure() && steps.pre-commit.outcome != 'success'
+      run: |
         git config user.name pre-commit
         git config user.email pre-commit
         git add .
         git commit -m "pre-commit"
         git push
-      working-directory: repo
