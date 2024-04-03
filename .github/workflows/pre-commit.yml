@@ -12,14 +12,22 @@ jobs:
     container:
       image: ubuntu:latest
     steps:
-    - name: Update container
+    - name: Update Container
       run: apt-get update && apt-get upgrade -y
-    - name: Install python
+    - name: Install Python
       run: apt-get update && apt-get install python3 python3-venv python3-pip -y
-    - name: Checkout
-      uses: actions/checkout@v4
     - name: Install pre-commit
       run: python3 -m pip install pre-commit
+    - name: Checkout repo
+      uses: actions/checkout@v4
+    - name: Cache
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/pre-commit
+        key: pre-commit-3|${{ env.pythonLocation }}|${{ hashFiles('.pre-commit-config.yaml') }}
+    - name: Run pre-commit
+      run: pre-commit run --show-diff-on-failure --color=always --all-files
+      shell: bash
     # - name: pre-commit-ci
     #   uses: pre-commit-ci/lite-action@v1.0.2
     #   if: always()
