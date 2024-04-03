@@ -28,7 +28,7 @@ jobs:
     #     path: ~/.cache/pre-commit
     #     key: pre-commit-3|${{ env.pythonLocation }}|${{ hashFiles('.pre-commit-config.yaml') }}
     - name: Add safe.directory
-      run: git config --global --add safe.directory .
+      run: git config --global --add safe.directory $pwd
     # - name: Git status
     #   run: git status
     #   working-directory: repo
