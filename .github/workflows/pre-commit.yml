@@ -6,6 +6,9 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   main:
     runs-on: ubuntu-latest
@@ -21,6 +24,7 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v4
       with:
+        ref: ${{ github.head_ref }}
         path: repo
     - name: Cache
       uses: actions/cache@v4
@@ -34,4 +38,11 @@ jobs:
       working-directory: repo
     - name: Run pre-commit
       run: pre-commit run --show-diff-on-failure --color=always --all-files
+      working-directory: repo
+    - run: |
+        git config user.name pre-commit
+        git config user.email pre-commit
+        git add .
+        git commit -m "pre-commit"
+        git push
       working-directory: repo
