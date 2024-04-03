@@ -14,8 +14,8 @@ jobs:
     steps:
     - name: Update Container
       run: apt-get update && apt-get upgrade -y
-    - name: Install Python
-      run: apt-get update && apt-get install python3 python3-venv python3-pip -y
+    - name: Install Dependencies
+      run: apt-get update && apt-get install python3 python3-venv python3-pip git -y
     - name: Install pre-commit
       run: python3 -m pip install pre-commit
     - name: Checkout repo
