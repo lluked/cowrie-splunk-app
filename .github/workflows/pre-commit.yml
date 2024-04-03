@@ -10,10 +10,7 @@ jobs:
     container:
       image: python:3.11
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-python@v4
-      with:
-        python-version: 3.x
+    - uses: actions/checkout@v4
     - uses: pre-commit/action@v3.0.1
     - uses: pre-commit-ci/lite-action@v1.0.2
       if: always()
