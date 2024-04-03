@@ -1,3 +1,5 @@
+name: pre-commit
+
 on:
   pull_request:
   push:
@@ -8,7 +10,7 @@ jobs:
   main:
     runs-on: ubuntu-latest
     container:
-      image: python:3.11
+      image: ubuntu:latest
     steps:
     - uses: actions/checkout@v4
     - uses: pre-commit/action@v3.0.1
